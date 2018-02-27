@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ListItem from './components/list-item/list-item';
 
 class App extends Component {
+
+  state = {
+    ListItems: []
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <div className="centerAlign">
+          <input type="text" placeholder="Add Description" />
+          <input type="button" value="Add" onClick={this.AddListItem} />
+        </div>
+
+        {/* <ListItem description="hello"></ListItem> */}
       </div>
     );
   }
-}
 
+  ListItems = [];
+  AddListItem = () => {
+    var newListItem = { id: '', description: '' };
+    this.ListItems.push(newListItem);
+    this.setState({
+      ListItems: this.ListItems
+    });
+    setTimeout(() => { console.log(this.state.ListItems); }, 100);
+  }
+}
 export default App;
