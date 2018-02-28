@@ -6,13 +6,13 @@ class ListComponent extends Component {
         return (
             <div>
                 {
-                    this.props.items.map((item,index) => 
-                    <div className='list-item' key={item.id}>
-                    <input type="checkbox" />
-                    {item.description}
-                    </div> 
+                    this.props.items.map((item, index) =>
+                        <div className='list-item' key={item.id}>
+                            <input type="checkbox" />
+                            {item.description}
+                        </div>
                     )
-                }                
+                }
             </div>
         )
     };
