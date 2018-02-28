@@ -31,3 +31,7 @@
   text-align: center;
   margin-top: 2%;
 }
+
+.border-radius-0{
+  border-radius: 0 !important;
+}

@@ -24,10 +24,13 @@ class App extends Component {
 
             <span className="input-group-btn">
               <button
-                className="btn btn-primary"
+                // style={{ borderRadius: '0' }}
+                className="btn btn-primary border-radius-0"
                 disabled={!this.state.newListItemValue}
                 type="button"
-                onClick={this.AddListItem}>Add</button>
+                onClick={this.AddListItem}>
+                <i className="fa fa-plus"></i>
+              </button>
             </span>
           </div>
         </div>

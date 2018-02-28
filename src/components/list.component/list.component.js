@@ -8,8 +8,10 @@ class ListComponent extends Component {
                 {
                     this.props.items.map((item, index) =>
                         <div className='list-item' key={item.id}>
-                            <input type="checkbox" />
-                            {item.description}
+                            <span className="item-description">{item.description}</span>
+                            <i 
+                            className="fa fa-check-circle fa-2x float-right fa-color-grey clickable"
+                            title="Mark/Unmark Completed"></i>
                         </div>
                     )
                 }
