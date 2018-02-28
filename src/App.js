@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import List from './components/list.component/list.component';
-
+import List from './components/list/list.component';
+import FilterList  from "./components/filter-list/filter-list.component";
 class App extends Component {
 
   state = {
@@ -33,6 +33,9 @@ class App extends Component {
               </button>
             </span>
           </div>
+        </div>
+        <div>
+           <FilterList  />
         </div>
         {<List onMarkComplete={this.UpdateListItemStatus} items={this.state.ListItems} />}
       </form>
