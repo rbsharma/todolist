@@ -25,3 +25,11 @@
 .clickable{
     cursor: pointer;
 }
+
+.list-item-active{
+    opacity: 1;
+}
+
+.list-item-completed{
+    opacity: 0.5;
+}

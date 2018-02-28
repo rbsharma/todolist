@@ -34,9 +34,22 @@ class App extends Component {
             </span>
           </div>
         </div>
-        {<List items={this.state.ListItems} />}
+        {<List onMarkComplete={this.UpdateListItemStatus} items={this.state.ListItems} />}
       </form>
     );
+  }
+
+  UpdateListItemStatus = (clickedListItem) => {
+    for (let i = 0; i < this.ListItems.length; i++) {
+      if (this.ListItems[i].id == clickedListItem.id) {
+        this.ListItems[i].completed = !clickedListItem.completed;
+        break;
+      }
+    }
+
+    this.setState({
+      ListItems: this.ListItems
+    });
   }
 
   descriptionChanged(_newValue) {
@@ -51,7 +64,7 @@ class App extends Component {
     var newListItem = {
       id: this.state.ListItems.length,
       description: this.state.newListItemValue,
-      status: 0
+      completed: false
     };
     this.ListItems.push(newListItem);
     this.setState({
