@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import List from './components/list/list.component';
-import FilterList  from "./components/filter-list/filter-list.component";
+import FilterList from "./components/filter-list/filter-list.component";
+import AddListItemComponent from './components/add-list-item/add-list-item.component';
+
 class App extends Component {
 
   state = {
@@ -11,34 +13,15 @@ class App extends Component {
 
   render() {
     return (
-      <form onSubmit={this.AddListItem} className="centerAlign">
-
-        <div className="offset-sm-1 offset-md-3 offset-lg-5 col-sm-10 col-lg-4">
-          <div className="input-group">
-            <input
-              type="text"
-              className="form-control col-md-6"
-              placeholder="Add Description"
-              value={this.state.descriptionInputbox}
-              onChange={(e) => this.descriptionChanged(e.target.value)} />
-
-            <span className="input-group-btn">
-              <button
-                // style={{ borderRadius: '0' }}
-                className="btn btn-primary border-radius-0"
-                disabled={!this.state.newListItemValue}
-                type="button"
-                onClick={this.AddListItem}>
-                <i className="fa fa-plus"></i>
-              </button>
-            </span>
-          </div>
+      <div className="centerAlign">
+        <div className="offset-sm-1 col-sm-10 offset-md-4 col-md-8">
+          <AddListItemComponent GetListItem={this.AddListItem} />
         </div>
         <div>
-           <FilterList  />
+          <FilterList />
+          {<List onMarkComplete={this.UpdateListItemStatus} items={this.state.ListItems} />}
         </div>
-        {<List onMarkComplete={this.UpdateListItemStatus} items={this.state.ListItems} />}
-      </form>
+      </div>
     );
   }
 
@@ -63,11 +46,11 @@ class App extends Component {
 
   ListItems = [];
   AddListItem = (event) => {
-    event.preventDefault();
+    console.log(event);
     var newListItem = {
       id: this.state.ListItems.length,
-      description: this.state.newListItemValue,
-      completed: false
+      description: event.description,
+      completed: event.completed
     };
     this.ListItems.push(newListItem);
     this.setState({
