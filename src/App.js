@@ -8,7 +8,8 @@ class App extends Component {
 
   state = {
     ListItems: [],
-    newListItemValue: ''
+    newListItemValue: '',
+    isFilterApplied: false
   };
 
   render() {
@@ -18,11 +19,30 @@ class App extends Component {
           <AddListItemComponent GetListItem={this.AddListItem} />
         </div>
         <div>
-          <FilterList />
-          {<List onMarkComplete={this.UpdateListItemStatus} items={this.state.ListItems} />}
+          <FilterList GetFilterName={this.FilterListItems} />
+          {<List onMarkComplete={this.UpdateListItemStatus}
+            items={this.state.isFilterApplied ? this.ListItemsToDispay : this.ListItems} />}
         </div>
       </div>
     );
+  }
+
+
+  ListItemsToDispay = [];
+  FilterListItems(_filterName) {
+    // if (_filterName) {
+    //   console.log(this.state);
+    //   this.setState({
+    //     isFilterApplied: true
+    //   });
+    //   for (let item of this.state.ListItems) {
+
+    //   }
+    // } else {
+    //   this.setState({
+    //     isFilterApplied: false
+    //   });
+    // }
   }
 
   UpdateListItemStatus = (clickedListItem) => {
