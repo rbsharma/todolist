@@ -6,11 +6,12 @@
     padding: 16px;
     text-align: left;
     word-break: break-all;
+    background-color: white;
 }
 
 .item-description{
     font-size: 1.5em;
-    color: #6f757b;
+    color: black;
     font-weight: 400;
 }
 
@@ -31,5 +32,5 @@
 }
 
 .list-item-completed{
-    opacity: 0.5;
+    opacity: 0.8;
 }

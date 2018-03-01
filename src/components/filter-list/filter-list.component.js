@@ -13,11 +13,11 @@ class FilterListComponent extends Component {
             <div>
                 <ul className="list-inline">
                     <li className="list-inline-item">
-                        <a onClick={this.FilterClicked}>All</a></li>
+                        <a className="clickable" onClick={this.FilterClicked}>All</a></li>
                     <li className="list-inline-item">
-                        <a onClick={this.FilterClicked}>Active</a></li>
+                        <a className="clickable" onClick={this.FilterClicked}>Active</a></li>
                     <li className="list-inline-item">
-                        <a onClick={this.FilterClicked}>Completed</a></li>
+                        <a className="clickable" onClick={this.FilterClicked}>Completed</a></li>
                 </ul>
             </div>
         );
